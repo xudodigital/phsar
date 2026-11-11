@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.pyc
+data/*.sqlite3*
+dist/
+.wrangler/
+.dev.vars
+
+# Local/private files
+data/
+.env
+.env.*
+!.env.example
+.dev.vars.*
+*.log

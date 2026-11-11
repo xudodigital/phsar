@@ -1,0 +1,6 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const source=fs.readFileSync(path.join(__dirname,'../js/usability.js'),'utf8');
+const ctx={};vm.createContext(ctx);
+for(const name of ['normalizedPhone','searchViewportMetrics']){const start=source.indexOf('function '+name),end=source.indexOf('\n',start);vm.runInContext(source.slice(start,end),ctx)}
+test('phone identity stays stable across local and international formatting',()=>{assert.equal(ctx.normalizedPhone('012 345 678'),'+85512345678');assert.equal(ctx.normalizedPhone('00855 12 345 678'),'+85512345678');assert.equal(ctx.normalizedPhone('+85512345678'),'+85512345678');assert.equal(ctx.normalizedPhone('hello'),null);assert.equal(ctx.normalizedPhone('123'),null)});
+test('search accounts for overlay keyboards, resized layouts and panned visual viewports',()=>{assert.equal(ctx.searchViewportMetrics(844,510).inset,334);assert.equal(ctx.searchViewportMetrics(510,510).inset,0);assert.equal(ctx.searchViewportMetrics(844,510,50).inset,284);assert.equal(ctx.searchViewportMetrics(844,510,0,2).inset,0);assert.equal(ctx.searchViewportMetrics(844,844).inset,0)});

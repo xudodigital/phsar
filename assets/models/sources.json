@@ -1,0 +1,68 @@
+{
+  "runtime": {
+    "name": "@huggingface/transformers",
+    "version": "3.8.1",
+    "source": "https://registry.npmjs.org/@huggingface/transformers/-/transformers-3.8.1.tgz"
+  },
+  "model": {
+    "name": "Xenova/clip-vit-base-patch32",
+    "revision": "6b7c523703ae26e39be4b03774966f8571c7f523",
+    "source": "https://huggingface.co/Xenova/clip-vit-base-patch32",
+    "dtype": "q8",
+    "license": "MIT"
+  },
+  "files": {
+    "assets/models/clip-vit-base-patch32/LICENSE": {
+      "bytes": 1064,
+      "sha256": "987e63b32f6c89ff5160e429458a872ff048e6860b590a3912e938f9da8f14db"
+    },
+    "assets/models/clip-vit-base-patch32/tokenizer_config.json": {
+      "bytes": 775,
+      "sha256": "60ba2912bc6344c94bc16bbdec27fa1209409167b6f2fdf3cfe9e65462ea3967"
+    },
+    "assets/models/clip-vit-base-patch32/special_tokens_map.json": {
+      "bytes": 472,
+      "sha256": "c4864a9376a8401918425bed71fc14fc0e81f9b59ec45c1cf96cccb2df508eac"
+    },
+    "assets/models/clip-vit-base-patch32/config.json": {
+      "bytes": 4524,
+      "sha256": "493ef57ff783e42d1530c91b53469b7fdf8db8a9c1408e86998fcb7899a4f495"
+    },
+    "assets/models/clip-vit-base-patch32/tokenizer.json": {
+      "bytes": 2224119,
+      "sha256": "f7f3b7af117d467b58374797691a6438d3e6b9e9cef800dfd5dced7f697a90cd"
+    },
+    "assets/models/clip-vit-base-patch32/README.md": {
+      "bytes": 1417,
+      "sha256": "ae287015b60eb7ca1d40e726c550af1988977c24f0005f123274d52490c20d8d"
+    },
+    "assets/models/clip-vit-base-patch32/preprocessor_config.json": {
+      "bytes": 520,
+      "sha256": "6f638fb9401a6d6296feff533ee7efe657b787c49f954f82f5906b36ef2a1b1f"
+    },
+    "assets/models/clip-vit-base-patch32/onnx/model_quantized.onnx": {
+      "bytes": 153695702,
+      "sha256": "0898a3facfdb27f0a041e57649b4989cfd094e4a0040d6ae75ed69917dfc7328"
+    },
+    "assets/vendor/transformers-LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "assets/vendor/ort-wasm-simd-threaded.jsep.wasm": {
+      "bytes": 21596019,
+      "sha256": "c46655e8a94afc45338d4cb2b840475f88e5012d524509916e505079c00bfa39"
+    },
+    "assets/vendor/ort-wasm-simd-threaded.jsep.mjs": {
+      "bytes": 44484,
+      "sha256": "08fb86ec433c78bfb032c5d84a68b8e8e5a8d81268fa39e24314179a5767a5b9"
+    },
+    "assets/vendor/transformers.min.js": {
+      "bytes": 888173,
+      "sha256": "aa5002b70e789798da263f5f99c62bd3e8fcd0c119258a493c40c180648365fa"
+    },
+    "assets/vendor/onnxruntime-LICENSE": {
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    }
+  }
+}

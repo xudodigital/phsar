@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="km">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+  <meta name="theme-color" content="#fb0750">
+  <meta name="description" content="Phsar — watch, discover and shop. A mobile marketplace prototype for Cambodia.">
+  <title>Phsar · Marketplace Cambodia</title>
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/style.css?v=drag-map-28">
+  <script src="js/brand-icons.js?v=clean-feed-11" defer></script>
+  <script src="js/catalog.js?v=audio-products-2" defer></script>
+<script src="js/playback.js?v=shared-sound-1" defer></script>
+<script src="js/app.js?v=readable-19" defer></script>
+  <script src="js/brand-copy.js?v=tuktuk-consistency-2" defer></script>
+<script src="js/discovery.js?v=clean-feed-11" defer></script>
+<script src="js/chat-media.js?v=chat-media-3" defer></script>
+<script src="js/tenant-store.js?v=support-17" defer></script>
+<script src="js/video-views.js?v=global-views-1" defer></script>
+<script src="js/experience.js?v=saved-map-29" defer></script>
+<script src="js/support.js?v=contact-us-18" defer></script>
+<script src="js/shipping.js?v=saved-map-29" defer></script>
+<script src="js/usability.js?v=10" defer></script>
+<script src="assets/vendor/leaflet/leaflet.js" defer></script>
+<script src="js/delivery-map.js?v=2" defer></script>
+  <script src="js/photo-ui.js?v=classic-controls-2" defer></script>
+</head>
+<body>
+  <div id="splash" class="splash" role="dialog" aria-label="Phsar" aria-modal="true">
+    <div class="splash-orbit"><svg class="icon brand-icon " data-icon="brand" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><defs><linearGradient id="phsar-splash-mark-paint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7ba8"/><stop offset=".56" stop-color="#f50750"/><stop offset="1" stop-color="#c30963"/></linearGradient><mask id="phsar-splash-mark-shape" x="0" y="0" width="24" height="24" maskUnits="userSpaceOnUse" style="mask-type:luminance"><g fill="white" stroke="none"><path d="M3 7h18l1 16H2z"/><path d="M8 8V5a4 4 0 0 1 8 0v3" fill="none" stroke="white" stroke-width="2.5"/><path d="m9 10.5 8 4.5-8 4.5z" fill="black"/></g></mask></defs><rect class="brand-icon-ink" width="24" height="24" fill="url(#phsar-splash-mark-paint)" mask="url(#phsar-splash-mark-shape)" stroke="none"/></svg></div>
+    <h1>Phsar</h1><p>Watch &#8226; Discover &#8226; Shop</p><span class="splash-country">Marketplace Cambodia</span><div class="splash-loader" aria-hidden="true"></div><button id="splashContinue">Continue</button>
+  </div>
+  <div id="app" inert></div>
+  <dialog id="videoFeed" class="video-feed" aria-label="Product videos"></dialog>
+  <dialog id="sheet" class="sheet" aria-labelledby="sheetTitle"><header class="sheet-head"><h2 id="sheetTitle"></h2><button class="icon-button" id="closeSheet" aria-label="Close"></button></header><div id="sheetContent"></div></dialog>
+  <input id="photoInput" type="file" accept="image/*" hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

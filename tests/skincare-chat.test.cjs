@@ -1,0 +1,11 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict'),path=require('path');
+const source=fs.readFileSync(path.join(__dirname,'../js/tenant-store.js'),'utf8');
+const code=source.slice(source.indexOf('function migrateSkincareChat('),source.indexOf('const storedTenantThreads='));
+const storage=new Map([['phsar-followed-tenants-v1','["phsar-select"]']]);
+const ctx={item:id=>id==='serum'?{tenantId:'grace-beauty'}:null,tenantById:id=>id==='grace-beauty',localStorage:{getItem:k=>storage.get(k),setItem:(k,v)=>storage.set(k,v)}};
+vm.createContext(ctx);vm.runInContext(code,ctx);
+const original={'phsar-select':[{text:'Test conversation with TukTuk Store.'},{text:'Test question about Skincare oil.',productId:'serum'},{text:'Is Skincare oil still available?'}],'grace-beauty':[{text:'Existing beauty message'}]};
+const result=ctx.migrateSkincareChat(original);
+assert.equal(result['phsar-select'].length,1);assert.equal(result['grace-beauty'].length,3);assert.equal(result['grace-beauty'][2].productId,'serum');assert.equal(result['grace-beauty'][0].text,'Existing beauty message');assert.equal(storage.get('phsar-followed-tenants-v1'),'["phsar-select"]');assert.equal(ctx.migrateSkincareChat(result),result);
+assert.equal(JSON.parse(storage.get('phsar-tenant-messages-v1'))['grace-beauty'][2].text,'Is Skincare oil still available?');
+console.log('PASS: Skincare messages moved once, existing conversations and Follow preserved, correct latest message persisted.');

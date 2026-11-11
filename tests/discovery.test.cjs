@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const source=fs.readFileSync(require('path').join(__dirname,'../js/discovery.js'),'utf8');
+const items=Array.from({length:10000},(_,i)=>({id:'p'+i,addedOrder:i}));
+const saved={};const ctx={globalVideoViews:{},videoViewsFailed:false,items,item:id=>items.find(p=>p.id===id),readStore:()=>({}),dict:{en:{},km:{},zh:{}},localStorage:{setItem:(k,v)=>saved[k]=v},document:{addEventListener(){}},t:k=>k,icon:()=>'',productCard:p=>`<article data-test-card="${p.id}"></article>`,header:()=>'',nav:()=>'',matches:()=>items,activeCatalog:'all',Date};vm.createContext(ctx);vm.runInContext(source,ctx);ctx.renderMidPromotion=()=>"";
+assert.equal(ctx.discoveryItems('new')[0].id,'p9999');assert.equal(ctx.discoveryItems('popular').length,0);assert.equal(ctx.discoveryItems('recent').length,0);
+let html=ctx.renderCatalogPage();assert.equal((html.match(/data-test-card/g)||[]).length,12);assert.ok(html.includes('1 / 834'));
+vm.runInContext('catalogPage=834',ctx);html=ctx.renderCatalogPage();assert.equal((html.match(/data-test-card/g)||[]).length,4);
+ctx.recordProductView('p1');ctx.recordProductView('p2');ctx.recordProductView('p1');assert.equal(ctx.discoveryItems('popular').length,0);ctx.globalVideoViews.p2=10;ctx.globalVideoViews.p1=2;assert.equal(ctx.discoveryItems('popular')[0].id,'p2');assert.equal(ctx.discoveryItems('recent')[0].id,'p1');assert.equal(JSON.parse(saved['phsar-product-views-v1']).p1.count,2);
+html=ctx.renderDiscoveryCollections();assert.equal((html.match(/data-test-card/g)||[]).length,10);assert.equal((ctx.renderDiscoveryResults().match(/data-test-card/g)||[]).length,12);
+console.log('PASS: 10,000 products render at most 12 per catalog page; final page 4; collections capped at 6; activity rankings and persistence work without seeded counts.');

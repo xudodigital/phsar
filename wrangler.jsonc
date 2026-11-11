@@ -1,0 +1,12 @@
+{
+  "name": "phsar",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-11-10",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "phsar-video-views",
+      "database_id": "1335c9f3-7ee1-46cd-b01e-752cf0877e6c"
+    }
+  ]
+}
